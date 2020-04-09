@@ -1,6 +1,9 @@
 # Self-Supervised Monocular Scene Flow Estimation
 
-<img src=demo/teaser.png>
+<img src=demo/demo.gif> 
+
+> 3D visualization of estimated depth and scene flow from two temporally consecutive images.  
+> Intermediate frames are interpolated using the estimated scene flow. (fine-tuned model, tested on KITTI Benchmark)
 
 This repository is the official PyTorch implementation of the paper:  
 
@@ -81,8 +84,8 @@ In the script files, please configure these following PATHs for experiments:
 | `./eval_monosf_selfsup_kitti_train.sh`    | MonoSceneFlow | Self-supervised | KITTI 2015 Train |
 | `./eval_monosf_selfsup_kitti_test.sh`     | MonoSceneFlow | Self-supervised | KITTI 2015 Test  |
 | `./eval_monosf_finetune_kitti_test.sh`    | MonoSceneFlow | fine-tuned      | KITTI 2015 Test  |
-| `./eval_monodpeth_selfsup_kitti_train.sh` | MonoDepth     | Self-supervised | KITTI test split |
-| `./eval_monodpeth_selfsup_eigen_test.sh`  | MonoDepth     | Self-supervised | Eigen test split |
+| `./eval_monodepth_selfsup_kitti_train.sh` | MonoDepth     | Self-supervised | KITTI test split |
+| `./eval_monodepth_selfsup_eigen_test.sh`  | MonoDepth     | Self-supervised | Eigen test split |
 
   - Testing on *KITTI 2015 Test* gives output images for uploading on the [KITTI Scene Flow 2015 Benchmark](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php).  
   - To save output image, please turn on `--save_disp=True`, `--save_disp2=True`, and `--save_flow=True` in the script.  

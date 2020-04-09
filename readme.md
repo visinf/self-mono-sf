@@ -4,10 +4,10 @@
 
 This repository is the official PyTorch implementation of the paper:  
 
-&nbsp;&nbsp;&nbsp;[**Self-Supervised Monocular Scene Flow Estimation**]()  
+&nbsp;&nbsp;&nbsp;[**Self-Supervised Monocular Scene Flow Estimation**](https://arxiv.org/pdf/2004.04143.pdf)  
 &nbsp;&nbsp;&nbsp;[Junhwa Hur](https://sites.google.com/site/hurjunhwa) and [Stefan Roth](https://www.visinf.tu-darmstadt.de/team_members/sroth/sroth.en.jsp)  
 &nbsp;&nbsp;&nbsp;*CVPR*, 2020 (**Oral Presentation**)  
-&nbsp;&nbsp;&nbsp;[Preprint]()
+&nbsp;&nbsp;&nbsp;[Preprint](https://arxiv.org/pdf/2004.04143.pdf)
 
 - Contact: junhwa.hur[at]visinf.tu-darmstadt.de  
 

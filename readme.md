@@ -93,12 +93,15 @@ In the script files, please configure these following PATHs for experiments:
 ## Pretrained Models 
 
 The **[checkpoints](checkpoints/)** folder contains the checkpoints of the pretrained models.  
-Pretrained models from the ablation study can be downloaded here: [download link](https://drive.google.com/open?id=12Q2toxjBHN2lue0fEeLynlS4EDdhbPB8)
+Pretrained models from the ablation study can be downloaded here: [download link](https://download.visinf.tu-darmstadt.de/data/2020-cvpr-hur-self-mono-sf/models/checkpoints_ablation_study.zip)
 
 
 ## Outputs and Visualization
 
-Ouput images and visualization of the main experiments can be downloaded here: [download link](https://drive.google.com/open?id=12Q2toxjBHN2lue0fEeLynlS4EDdhbPB8)
+Ouput images and visualization of the main experiments can be downloaded here:
+  - [Self-supervised, tested on KITTI 2015 Train](https://download.visinf.tu-darmstadt.de/data/2020-cvpr-hur-self-mono-sf/results/self_supervised_KITTI_train.zip)
+  - [Self-supervised, tested on Eigen Test](https://download.visinf.tu-darmstadt.de/data/2020-cvpr-hur-self-mono-sf/results/self_supervised_Eigen_test.zip)
+  - [Fined-tuned, tested on KITTI 2015 Train](https://download.visinf.tu-darmstadt.de/data/2020-cvpr-hur-self-mono-sf/results/finetuned_KITTI_train.zip)
 
 
 ## Acknowledgement

@@ -93,12 +93,12 @@ In the script files, please configure these following PATHs for experiments:
 ## Pretrained Models 
 
 The **[checkpoints](checkpoints/)** folder contains the checkpoints of the pretrained models.  
-Pretrained models from the ablation study can be downloaded here: [download link]()
+Pretrained models from the ablation study can be downloaded here: [download link](https://drive.google.com/open?id=12Q2toxjBHN2lue0fEeLynlS4EDdhbPB8)
 
 
 ## Outputs and Visualization
 
-Ouput images and visualization of the main experiments can be downloaded here: [download link]()
+Ouput images and visualization of the main experiments can be downloaded here: [download link](https://drive.google.com/open?id=12Q2toxjBHN2lue0fEeLynlS4EDdhbPB8)
 
 
 ## Acknowledgement

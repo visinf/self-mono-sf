@@ -7,10 +7,10 @@
 
 This repository is the official PyTorch implementation of the paper:  
 
-&nbsp;&nbsp;&nbsp;[**Self-Supervised Monocular Scene Flow Estimation**](https://arxiv.org/pdf/2004.04143.pdf)  
+&nbsp;&nbsp;&nbsp;[**Self-Supervised Monocular Scene Flow Estimation**](http://openaccess.thecvf.com/content_CVPR_2020/papers/Hur_Self-Supervised_Monocular_Scene_Flow_Estimation_CVPR_2020_paper.pdf)  
 &nbsp;&nbsp;&nbsp;[Junhwa Hur](https://sites.google.com/site/hurjunhwa) and [Stefan Roth](https://www.visinf.tu-darmstadt.de/team_members/sroth/sroth.en.jsp)  
 &nbsp;&nbsp;&nbsp;*CVPR*, 2020 (**Oral Presentation**)  
-&nbsp;&nbsp;&nbsp;[Preprint](https://arxiv.org/pdf/2004.04143.pdf)
+&nbsp;&nbsp;&nbsp;[Paper](http://openaccess.thecvf.com/content_CVPR_2020/papers/Hur_Self-Supervised_Monocular_Scene_Flow_Estimation_CVPR_2020_paper.pdf) / [Supplemental](http://openaccess.thecvf.com/content_CVPR_2020/supplemental/Hur_Self-Supervised_Monocular_Scene_CVPR_2020_supplemental.pdf)
 
 - Contact: junhwa.hur[at]visinf.tu-darmstadt.de  
 
@@ -108,12 +108,14 @@ Ouput images and visualization of the main experiments can be downloaded here:
 
 Please cite our paper if you use our source code.  
 
-    @inproceedings{Hur:2020:SSM,  
-      Author = {Junhwa Hur and Stefan Roth},  
-      Booktitle = {CVPR},  
-      Title = {Self-Supervised Monocular Scene Flow Estimation},  
-      Year = {2020}  
-    }
+```bibtex
+@inproceedings{Hur:2020:SSM,  
+  Author = {Junhwa Hur and Stefan Roth},  
+  Booktitle = {CVPR},  
+  Title = {Self-Supervised Monocular Scene Flow Estimation},  
+  Year = {2020}  
+}
+```
 
 - Portions of the source code (e.g., training pipeline, runtime, argument parser, and logger) are from [Jochen Gast](https://scholar.google.com/citations?user=tmRcFacAAAAJ&hl=en)  
 - MonoDepth evaluation utils from [MonoDepth](https://github.com/mrharicot/monodepth)

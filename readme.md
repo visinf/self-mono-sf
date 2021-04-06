@@ -19,8 +19,14 @@ This code has been developed with Anaconda (Python 3.7), **PyTorch 1.2.0** and C
 Based on a fresh [Anaconda](https://www.anaconda.com/download/) distribution and [PyTorch](https://pytorch.org/) installation, following packages need to be installed:  
 
   ```Shell
+  conda install pytorch==1.2.0 torchvision==0.4.0 cudatoolkit=10.0 -c pytorch
   pip install tensorboard
   pip install pypng==0.0.18
+  pip install colorama
+  pip install scikit-image
+  pip install pytz
+  pip install tqdm==4.30.0
+  pip install future
   ```
 
 Then, please excute the following to install the Correlation and Forward Warping layer:

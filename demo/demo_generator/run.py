@@ -1,13 +1,16 @@
 import os
+
+import skimage.io as io
+from skimage.color import rgb2gray
+# from skimage.color import lab2rgb
+
 import open3d as o3d
 import numpy as np
 import torch
 import matplotlib.pyplot as plt
-import skimage.io as io
-from skimage.color import rgb2gray
 import math
 
-from utils_misc import flow_to_png_middlebury, read_png_flow, read_png_depth
+from utils_misc import flow_to_png_middlebury, read_png_flow, read_png_disp
 from utils_misc import numpy2torch, pixel2pts_ms
 
 width_to_focal = dict()
@@ -38,8 +41,8 @@ def get_pcd(img_idx, image_dir, result_dir, tt):
 
     im1_np0 = (io.imread(os.path.join(image_dir, "image_2/" + idx_curr + "_10.png")) / np.float32(255.0))[110:, :, :]
     flo_f_np0 = read_png_flow(os.path.join(result_dir, "flow/" + idx_curr + "_10.png"))[110:, :, :]
-    disp1_np0 = read_png_depth(os.path.join(result_dir, "disp_0/" + idx_curr + "_10.png"))[110:, :, :]
-    disp2_np0 = read_png_depth(os.path.join(result_dir, "disp_1/" + idx_curr + "_10.png"))[110:, :, :]
+    disp1_np0 = read_png_disp(os.path.join(result_dir, "disp_0/" + idx_curr + "_10.png"))[110:, :, :]
+    disp2_np0 = read_png_disp(os.path.join(result_dir, "disp_1/" + idx_curr + "_10.png"))[110:, :, :]
 
     im1 = numpy2torch(im1_np0).unsqueeze(0)
     disp1 = numpy2torch(disp1_np0).unsqueeze(0)
@@ -72,8 +75,8 @@ def get_pcd(img_idx, image_dir, result_dir, tt):
         flow_img = (flow_img * 0.75 + im1_np0_g * 0.25)
     
     ## Crop
-    max_crop = np.array([60, 0.7, 82])
-    min_crop = np.array([-60, -20, 0])
+    max_crop = (60, 0.7, 82)
+    min_crop = (-60, -20, 0)
 
     x1 = -60
     x2 = 60
@@ -103,7 +106,9 @@ def get_pcd(img_idx, image_dir, result_dir, tt):
     pcd1 = o3d.geometry.PointCloud()
     pcd1.points = o3d.utility.Vector3dVector(pts1_np)
     pcd1.colors = o3d.utility.Vector3dVector(pts1_color)
-    pcd1 = pcd1.crop(min_crop, max_crop)
+
+    bbox = o3d.geometry.AxisAlignedBoundingBox(min_crop, max_crop)
+    pcd1 = pcd1.crop(bbox)
 
     return pcd1
 
@@ -166,7 +171,7 @@ def custom_vis(imglist, kitti_data_dir, result_dir, vis_dir):
         pcd = get_pcd(img_id, kitti_data_dir, result_dir, tt)
         glb.index = glb.index + 1
 
-        vis.remove_geometry(glb.prev_pcd)
+        vis.clear_geometries()
         vis.add_geometry(pcd)
         glb.prev_pcd = pcd
 

@@ -1,13 +1,7 @@
 import numpy as np
-from scipy import ndimage
-from scipy import misc
-from PIL import Image
-
 import torch
-import torch.nn.functional as tf
-
 import skimage.io as io
-import png
+import cv2
 
 TAG_CHAR = np.array([202021.25], np.float32)
 UNKNOWN_FLOW_THRESH = 1e7
@@ -205,29 +199,16 @@ def get_grid(x):
     return grids_cuda
 
 
-def read_png_depth(depth_file):
-    disp_np = io.imread(depth_file).astype(np.uint16) / 256.0
+def read_png_disp(disp_file):
+    disp_np = io.imread(disp_file).astype(np.uint16) / 256.0
     disp_np = np.expand_dims(disp_np, axis=2)
     mask_disp = (disp_np > 0).astype(np.float64)
     return disp_np
 
-
-
 def read_png_flow(flow_file):
-    flow_object = png.Reader(filename=flow_file)
-    flow_direct = flow_object.asDirect()
-    flow_data = list(flow_direct[2])
-    (w, h) = flow_direct[3]['size']
-    flow = np.zeros((h, w, 3), dtype=np.float64)
-    for i in range(len(flow_data)):
-        flow[i, :, 0] = flow_data[i][0::3]
-        flow[i, :, 1] = flow_data[i][1::3]
-        flow[i, :, 2] = flow_data[i][2::3]
-
-    invalid_idx = (flow[:, :, 2] == 0)
-    flow[:, :, 0:2] = (flow[:, :, 0:2] - 2 ** 15) / 64.0
-    flow[invalid_idx, 0] = 0
-    flow[invalid_idx, 1] = 0
-    return flow[:, :, 0:2]
+    flow = cv2.imread(flow_file, cv2.IMREAD_ANYDEPTH|cv2.IMREAD_COLOR)[:,:,::-1].astype(np.float64)
+    flow, valid = flow[:, :, :2], flow[:, :, 2:]
+    flow = (flow - 2**15) / 64.0
+    return flow
 
 

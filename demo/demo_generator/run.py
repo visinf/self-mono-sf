@@ -7,7 +7,6 @@ from skimage.color import rgb2gray
 import open3d as o3d
 import numpy as np
 import torch
-import matplotlib.pyplot as plt
 import math
 
 from utils_misc import flow_to_png_middlebury, read_png_flow, read_png_disp
@@ -139,7 +138,7 @@ def custom_vis(imglist, kitti_data_dir, result_dir, vis_dir):
             file_name = os.path.join(vis_dir, "{:06d}_{:02d}.png".format(save_id, glb.index))
 
         print(' ' + str(glb.index) + ' '+ str(save_id) + ' '+ file_name)
-        plt.imsave(file_name, np.asarray(image), dpi=1)
+        io.imsave(file_name, np.asarray(image), check_contrast=False)
 
         ## Rendering
         max_d_x = 13

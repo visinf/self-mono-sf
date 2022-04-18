@@ -39,6 +39,7 @@ def get_pcd(img_idx, image_dir, result_dir, tt):
     idx_curr = '%06d' % (img_idx)
 
     im1_np0 = (io.imread(os.path.join(image_dir, "image_2/" + idx_curr + "_10.png")) / np.float32(255.0))[110:, :, :]
+
     flo_f_np0 = read_png_flow(os.path.join(result_dir, "flow/" + idx_curr + "_10.png"))[110:, :, :]
     disp1_np0 = read_png_disp(os.path.join(result_dir, "disp_0/" + idx_curr + "_10.png"))[110:, :, :]
     disp2_np0 = read_png_disp(os.path.join(result_dir, "disp_1/" + idx_curr + "_10.png"))[110:, :, :]
@@ -199,9 +200,9 @@ def custom_vis(imglist, kitti_data_dir, result_dir, vis_dir):
 
 ########################################################################
 
-kitti_data_dir = "kitti_img"    ## raw KITTI image
-result_dir = "results"          ## disp_0, disp_1, flow
-vis_dir = "vis"                 ## visualization output folder
+kitti_data_dir = "demo/demo_generator/kitti_img"    ## raw KITTI image
+result_dir = "demo/demo_generator/results"          ## disp_0, disp_1, flow
+vis_dir = "demo/demo_generator/vis"                 ## visualization output folder
 
 imglist = []
 
